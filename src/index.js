@@ -1,17 +1,54 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './styles/App.css'; // Ensure dark styles are defined here
+
+function Root() {
+  const [isDark, setIsDark] = useState(() => {
+    return localStorage.getItem('theme') === 'dark';
+  });
+
+  // Sync theme preference with <html> and <body> on change
+  useEffect(() => {
+    const theme = isDark ? 'dark' : 'light';
+    localStorage.setItem('theme', theme);
+    document.documentElement.classList.toggle('dark', isDark);
+    document.body.classList.toggle('dark', isDark);
+  }, [isDark]);
+
+  const toggleTheme = () => {
+    setIsDark(prev => !prev);
+  };
+
+  return (
+    <>
+      <button
+        onClick={toggleTheme}
+        style={{
+          position: 'fixed',
+          top: '15px',
+          right: '20px',
+          padding: '10px 15px',
+          borderRadius: '8px',
+          backgroundColor: isDark ? '#80cbc4' : '#00796b',
+          color: 'white',
+          border: 'none',
+          cursor: 'pointer',
+          zIndex: 1000,
+        }}
+      >
+        {isDark ? 'Light Mode' : 'Dark Mode'}
+      </button>
+      <App isDark={isDark} />
+    </>
+  );
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Root />
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+console.log("App is running!");
