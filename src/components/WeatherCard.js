@@ -11,6 +11,7 @@ const WeatherCard = ({ weatherData }) => {
             <img src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`} alt={weatherData.weather[0].description} />
         </div>
     );
+    
 };
 
 export default WeatherCard;

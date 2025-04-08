@@ -8,6 +8,7 @@ const useWeather = (city) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        
         if (!city) return;
 
         const fetchWeatherData = async () => {

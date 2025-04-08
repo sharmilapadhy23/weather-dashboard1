@@ -6,7 +6,7 @@ const WeatherForecast = () => {
     const [forecast, setForecast] = useState(null);
     const [error, setError] = useState('');
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e) => {  
         e.preventDefault();
         try {
             const data = await fetch5DayForecast(city);

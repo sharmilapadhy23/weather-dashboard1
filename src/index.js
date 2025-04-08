@@ -8,6 +8,8 @@ function Root() {
     return localStorage.getItem('theme') === 'dark';
   });
 
+
+  
   // Sync theme preference with <html> and <body> on change
   useEffect(() => {
     const theme = isDark ? 'dark' : 'light';

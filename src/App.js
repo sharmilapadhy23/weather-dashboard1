@@ -9,6 +9,8 @@ import Forecast from './components/forecast'; // Import Forecast
 import useWeather from './hooks/useWeather';
 import './styles/App.css';
 
+
+
 const App = ({ isDark }) => {
     const [city, setCity] = useState('');
     const [recentCities, setRecentCities] = useState([]);

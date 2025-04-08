@@ -1,5 +1,7 @@
 Weather Dashboard - Documentation
 
+
+
 🌦️ Weather Dashboard
 
 A clean, modern, and responsive React application for real-time weather tracking and 5-day forecasts using the OpenWeatherMap API. Features dark/light themes, recent search history, and interactive UI animations.
